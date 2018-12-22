@@ -136,13 +136,9 @@ public class BasicsLesson {
      * @return
      */
     public String stringExercise1(String input) {
-
-        int index = input.indexOf('S');
-        String newString = input.substring(2, index+1);
-        newString = newString.toUpperCase();
-        return newString;
+        return input.substring(2, input.indexOf('S')+1).toUpperCase();
     }
-
+    
     /**
      * Получив некоторую строку, найдите длину строки, количество запятых, количество дефисов,
      * индекс первого символа "R", индекс последнего символа "L" и количество пробелолв между словами.
