@@ -196,22 +196,6 @@ public class BasicsLesson {
      * @return
      */
     public String stringExercise3(String input) {
-//        int wordCnt = 0;
-//        int pos = 0;
-//        int prev_pos = 0;
-//        String firstWord = "";
-//        String lastWord = "";
-//        while(pos < input.length() && input.charAt(pos++) == ' ');
-//        while(pos < input.length()){
-//            while(pos < input.length() && input.charAt(pos++) != ' ') pos++;
-//            while(pos < input.length() && input.charAt(pos++) == ' ');
-//            wordCnt++;
-//        }
-//        int posHello = input.indexOf("Hello");
-//        int posGoodbye = input.indexOf("Goodbye");
-//        if (wordCnt == 3 && posHello >= 0) {
-//
-//        }
     	String result = "";
     	String[] words = input.trim().split(" ");
     	int posHello = input.indexOf("Hello");
