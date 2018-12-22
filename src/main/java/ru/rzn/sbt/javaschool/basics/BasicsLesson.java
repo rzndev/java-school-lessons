@@ -56,7 +56,7 @@ public class BasicsLesson {
      * </ul>
      */
     public void xLittleIndians(int x, Logger log) {
-    	for(int i = x; i >= 1; i--) {
+    	for(int i = x; i > 0; i--) {
 	        if (i == 1) {
 	            log.log("1 little indian");
 	        } else {
@@ -150,40 +150,19 @@ public class BasicsLesson {
      * @param input
      * @return
      */
-    public int stringExercise2(String input) {
-        int len = input.length();
-        int firstRPos = input.indexOf('R');
-        int lastLPos = input.lastIndexOf('L');
-        int cntSpaces = 0;
-        int cntCommas = 0;
-        int cntDefis = 0;
-        int lastSpaces = 0;
-        int firstSpaces = 0;
-        int i = 0;
-        for(i = input.length()-1; i >= 0; --i) {
-            if (input.charAt(i) == ' ')
-                lastSpaces++;
-            else
-                break;
-        }
-        boolean stopCntFirstSpaces = false;
-        for(i = 0; i < input.length(); ++i) {
-            if (input.charAt(i) == ' ')
-            {
-                cntSpaces++;
-                if (!stopCntFirstSpaces)
-                    firstSpaces++;
-            } else {
-                stopCntFirstSpaces = true;
-            }
-            if (input.charAt(i) == ',') cntCommas++;
-            if (input.charAt(i) == '-') cntDefis++;
-        }
-        int spacesBetweenWrods = cntSpaces - lastSpaces - firstSpaces;
-        int result = len * firstRPos * lastLPos * spacesBetweenWrods * cntCommas * cntDefis;
-        return result;
-    }
 
+    public int stringExercise2(String input) {
+        int commas = 0, defis = 0, spaces = 0;
+        for (char c: input.trim().toCharArray()) {
+            switch (c) {
+                case ',': commas++; break;
+                case '-': defis++;  break;
+                case ' ': spaces++; break;
+            }
+        }
+        return input.length() * input.indexOf('R') * input.lastIndexOf('L')
+                              * spaces * commas * defis;
+    }
     /**
      * Получив некоторую строку выполните следующее:<br />
      * 1. если в строке 3 слова и есть слово "Hello", верните новую строку, содержащую первое и последнее слова (без лишних пробелов).<br />

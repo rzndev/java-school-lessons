@@ -1,13 +1,15 @@
 package ru.rzn.sbt.javaschool.basics;
 
+import java.util.concurrent.atomic.AtomicInteger;
+
 public class LethalWeapon {
 	
 	public LethalWeapon() {
-		nextSerial++;
+		serial = nextSerial.getAndIncrement();
 	}
 	
 	public LethalWeapon(String color, Double power, int roundsLeft) {
-		nextSerial++;
+		serial = nextSerial.getAndIncrement();
 		this.color = color;
 		this.power = power;
 		this.roundsLeft = roundsLeft;
@@ -17,9 +19,9 @@ public class LethalWeapon {
 	private int roundsLeft;
 	private Double power;
 	
-	private static long nextSerial = 0;
+	private static AtomicInteger nextSerial = new AtomicInteger();
 	
-	private final long serial = nextSerial;
+	private final long serial;
 	
 	public final long getSerial() {
 		return serial;
