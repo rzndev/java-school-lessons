@@ -57,7 +57,7 @@ public class LethalWeapon {
 	
 	@Override
 	public int hashCode() {
-		int result = power.hashCode() + roundsLeft + color.hashCode();
+		int result = power.hashCode() + 31*roundsLeft + 31*color.hashCode();
 		return result;
 	}
 }
